@@ -21,7 +21,12 @@ public class MarsRover
     {
         if (commands.First() == 'b')
         {
-            position = new Position(-1, 0);
+            position = direction switch
+            {
+                'E' => new Position(-1, 0),
+                'N' => new Position(0, -1),
+                _ => position
+            };
             return;
         }
 
