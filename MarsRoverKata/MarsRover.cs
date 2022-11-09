@@ -34,7 +34,7 @@ public class MarsRover
 
         position = direction switch
         {
-            'E' => new Position(position.X + 1, 0),
+            'E' => new Position(position.X + 1, position.Y),
             'N' => new Position(0, 1),
             'W' => new Position(-1, 0),
             'S' => new Position(0, -1),
