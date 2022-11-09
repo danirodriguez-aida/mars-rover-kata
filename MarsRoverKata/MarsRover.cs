@@ -23,6 +23,7 @@ public class MarsRover
         {
             'E' => new Position(1, 0),
             'N' => new Position(0, 1),
+            'W' => new Position(-1, 0),
             _ => position
         };
     }
