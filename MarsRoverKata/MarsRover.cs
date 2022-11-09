@@ -19,6 +19,12 @@ public class MarsRover
 
     public void Execute(char[] commands)
     {
+        if (commands.First() == 'b')
+        {
+            position = new Position(-1, 0);
+            return;
+        }
+
         position = direction switch
         {
             'E' => new Position(1, 0),
