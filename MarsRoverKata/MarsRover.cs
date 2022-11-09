@@ -3,21 +3,17 @@ namespace MarsRoverKata;
 public class MarsRover {
     internal Position position;
     private readonly char direction;
-    private readonly MoveRightCommand moveRightCommand;
-    private readonly MoveUpCommand moveUpCommand;
-    private readonly MoveLeftCommand moveLeftCommand;
-    private readonly MoveDownCommand moveDownCommand;
-    private Dictionary<char, MoveCommand> moveForwardCommands;
-    private Dictionary<char, MoveCommand> moveBackwardCommands;
+    private readonly Dictionary<char, MoveCommand> moveForwardCommands;
+    private readonly Dictionary<char, MoveCommand> moveBackwardCommands;
 
 
     public MarsRover(Position position, char direction) {
         this.position = position;
         this.direction = direction;
-        moveRightCommand = new MoveRightCommand(this);
-        moveUpCommand = new MoveUpCommand(this);
-        moveLeftCommand = new MoveLeftCommand(this);
-        moveDownCommand = new MoveDownCommand(this);
+        var moveRightCommand = new MoveRightCommand(this);
+        var moveUpCommand = new MoveUpCommand(this);
+        var moveLeftCommand = new MoveLeftCommand(this);
+        var moveDownCommand = new MoveDownCommand(this);
         moveForwardCommands = new Dictionary<char, MoveCommand>
         {
             {'N', moveUpCommand},
