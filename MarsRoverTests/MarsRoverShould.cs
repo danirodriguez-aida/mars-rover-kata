@@ -7,6 +7,7 @@ namespace MarsRoverTests {
         [TestCase(0,0, 1, 0, TestName = "(0,0)")]
         [TestCase(1,0, 2, 0, TestName = "(1,0)")]
         [TestCase(2,0, 3, 0, TestName = "(2,0)")]
+        [TestCase(2,1, 3, 1, TestName = "(2,1)")]
         public void move_forward_when_direction_is_East_and_position_is(int xInitial, int yInitial, int xFinal, int yFinal)
         {
             const char initialDirection = 'E';
