@@ -17,20 +17,20 @@ public class MarsRover {
     public void Execute(char[] commands) {
         if (commands.First() == 'b') {
             position = direction switch {
-                'E' => new Position(position.X - 1, position.Y),
-                'N' => new Position(position.X, position.Y - 1),
-                'W' => new Position(position.X + 1, position.Y),
-                'S' => new Position(position.X, position.Y + 1),
+                'E' => position.NextLeftPosition(),
+                'N' => position.NextDownPosition(),
+                'W' => position.NextRightPosition(),
+                'S' => position.NextUpPosition(),
                 _ => position
             };
             return;
         }
 
         position = direction switch {
-            'E' => new Position(position.X + 1, position.Y),
-            'N' => new Position(position.X, position.Y + 1),
-            'W' => new Position(position.X - 1, position.Y),
-            'S' => new Position(position.X, position.Y - 1),
+            'E' => position.NextRightPosition(),
+            'N' => position.NextUpPosition(),
+            'W' => position.NextLeftPosition(),
+            'S' => position.NextDownPosition(),
             _ => position
         };
     }

@@ -10,4 +10,24 @@ public class Position
         X = x;
         Y = y;
     }
+
+    public Position NextRightPosition()
+    {
+        return new Position(X + 1, Y);
+    }
+
+    public Position NextUpPosition()
+    {
+        return new Position(X, Y + 1);
+    }
+
+    public Position NextLeftPosition()
+    {
+        return new Position(X - 1, Y);
+    }
+
+    public Position NextDownPosition()
+    {
+        return new Position(X, Y - 1);
+    }
 }
