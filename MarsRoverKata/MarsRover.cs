@@ -1,43 +1,36 @@
 namespace MarsRoverKata;
 
-public class MarsRover
-{
+public class MarsRover {
     private Position position;
     private readonly char direction;
 
 
-    public MarsRover(Position position, char direction)
-    {
+    public MarsRover(Position position, char direction) {
         this.position = position;
         this.direction = direction;
     }
 
-    public Position GetPosition()
-    {
+    public Position GetPosition() {
         return position;
     }
 
-    public void Execute(char[] commands)
-    {
-        if (commands.First() == 'b')
-        {
-            position = direction switch
-            {
-                'E' => new Position(-1, 0),
-                'N' => new Position(0, -1),
-                'W' => new Position(1, 0),
-                'S' => new Position(0, 1),
+    public void Execute(char[] commands) {
+        if (commands.First() == 'b') {
+            position = direction switch {
+                'E' => new Position(position.X - 1, position.Y),
+                'N' => new Position(position.X, position.Y - 1),
+                'W' => new Position(position.X + 1, position.Y),
+                'S' => new Position(position.X, position.Y + 1),
                 _ => position
             };
             return;
         }
 
-        position = direction switch
-        {
+        position = direction switch {
             'E' => new Position(position.X + 1, position.Y),
-            'N' => new Position(0, 1),
-            'W' => new Position(-1, 0),
-            'S' => new Position(0, -1),
+            'N' => new Position(position.X, position.Y + 1),
+            'W' => new Position(position.X - 1, position.Y),
+            'S' => new Position(position.X, position.Y - 1),
             _ => position
         };
     }
