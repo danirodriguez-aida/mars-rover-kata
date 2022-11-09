@@ -13,9 +13,9 @@ namespace MarsRoverTests {
             var commands = new[] {'f'};
 
             marsRover.Execute(commands);
-
+          
             var marsRoverPosition = marsRover.GetPosition();
-            var expectedMarsRoverPosition = new Position(0,1);
+            var expectedMarsRoverPosition = new Position(1,0);
             marsRoverPosition.Should().BeEquivalentTo(expectedMarsRoverPosition);
         }
 
@@ -30,7 +30,7 @@ namespace MarsRoverTests {
             marsRover.Execute(commands);
 
             var marsRoverPosition = marsRover.GetPosition();
-            var expectedMarsRoverPosition = new Position(-1,0);
+            var expectedMarsRoverPosition = new Position(0,1);
             marsRoverPosition.Should().BeEquivalentTo(expectedMarsRoverPosition);
         }
     }

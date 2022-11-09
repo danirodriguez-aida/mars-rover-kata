@@ -21,8 +21,8 @@ public class MarsRover
     {
         position = direction switch
         {
-            'E' => new Position(0, 1),
-            'N' => new Position(-1, 0),
+            'E' => new Position(1, 0),
+            'N' => new Position(0, 1),
             _ => position
         };
     }
