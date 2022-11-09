@@ -26,6 +26,7 @@ public class MarsRover
                 'E' => new Position(-1, 0),
                 'N' => new Position(0, -1),
                 'W' => new Position(1, 0),
+                'S' => new Position(0, 1),
                 _ => position
             };
             return;
