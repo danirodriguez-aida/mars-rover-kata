@@ -7,6 +7,8 @@ public class MarsRover {
     private readonly MoveUpCommand moveUpCommand;
     private readonly MoveLeftCommand moveLeftCommand;
     private readonly MoveDownCommand moveDownCommand;
+    private Dictionary<char, MoveCommand> moveForwardCommands;
+    private Dictionary<char, MoveCommand> moveBackwardCommands;
 
 
     public MarsRover(Position position, char direction) {
@@ -16,6 +18,21 @@ public class MarsRover {
         moveUpCommand = new MoveUpCommand(this);
         moveLeftCommand = new MoveLeftCommand(this);
         moveDownCommand = new MoveDownCommand(this);
+        moveForwardCommands = new Dictionary<char, MoveCommand>
+        {
+            {'N', moveUpCommand},
+            {'S', moveDownCommand},
+            {'E', moveRightCommand},
+            {'W', moveLeftCommand}
+        };
+        moveBackwardCommands = new Dictionary<char, MoveCommand>
+        {
+            {'N', moveDownCommand},
+            {'S', moveUpCommand},
+            {'E', moveLeftCommand},
+            {'W', moveRightCommand}
+        };
+
     }
 
     public Position GetPosition() {
@@ -35,25 +52,12 @@ public class MarsRover {
 
     private void MoveForward()
     {
-        position = direction switch
-        {
-            'E' => moveRightCommand.Move(),
-            'N' => moveUpCommand.Move(),
-            'W' => moveLeftCommand.Move(),
-            'S' => moveDownCommand.Move(),
-            _ => position
-        };
+        moveForwardCommands[direction].Move();
     }
 
     private void MoveBackward()
     {
-        position = direction switch
-        {
-            'E' => moveLeftCommand.Move(),
-            'N' => moveDownCommand.Move(),
-            'W' => moveRightCommand.Move(),
-            'S' => moveUpCommand.Move(),
-            _ => position
-        };
+        moveBackwardCommands[direction].Move();
+
     }
 }

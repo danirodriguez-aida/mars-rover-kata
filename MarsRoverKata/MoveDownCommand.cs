@@ -9,8 +9,8 @@ public class MoveDownCommand: MoveCommand
         this.marsRover = marsRover;
     }
 
-    public Position Move()
+    public void Move()
     {
-        return marsRover.position.NextDownPosition();
+        marsRover.position = marsRover.position.NextDownPosition();
     }
 }
