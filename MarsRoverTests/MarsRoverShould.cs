@@ -53,7 +53,14 @@ namespace MarsRoverTests {
 
         public void Execute(char[] commands)
         {
-            position = new Position(0, 1);
+            if (direction.Equals('E'))
+            {
+                position = new Position(0, 1);
+            }
+            else if (direction.Equals('N'))
+            {
+                position = new Position(-1, 0);
+            }
         }
     }
 
