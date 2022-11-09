@@ -14,23 +14,37 @@ public class MarsRover {
         return position;
     }
 
-    public void Execute(char[] commands) {
-        if (commands.First() == 'b') {
-            position = direction switch {
-                'E' => position.NextLeftPosition(),
-                'N' => position.NextDownPosition(),
-                'W' => position.NextRightPosition(),
-                'S' => position.NextUpPosition(),
-                _ => position
-            };
+    public void Execute(char[] commands)
+    {
+        if (commands.First() == 'b')
+        {
+            MoveBackward();
             return;
         }
 
-        position = direction switch {
+        MoveForward();
+    }
+
+    private void MoveForward()
+    {
+        position = direction switch
+        {
             'E' => position.NextRightPosition(),
             'N' => position.NextUpPosition(),
             'W' => position.NextLeftPosition(),
             'S' => position.NextDownPosition(),
+            _ => position
+        };
+    }
+
+    private void MoveBackward()
+    {
+        position = direction switch
+        {
+            'E' => position.NextLeftPosition(),
+            'N' => position.NextDownPosition(),
+            'W' => position.NextRightPosition(),
+            'S' => position.NextUpPosition(),
             _ => position
         };
     }
