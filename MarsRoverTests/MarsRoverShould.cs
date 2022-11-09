@@ -4,9 +4,9 @@ namespace MarsRoverTests {
     public class MarsRoverShould {
 
         [Test]
-        public void moveForward()
+        public void move_forward_when_direction_is_East()
         {
-            const char initialDirection = 'N';
+            const char initialDirection = 'E';
             var initialPosition = new Position(0,0);
             var marsRover = new MarsRover(initialPosition, initialDirection);
             var commands = new[] {'f'};
