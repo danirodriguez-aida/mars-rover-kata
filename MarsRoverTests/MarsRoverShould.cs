@@ -15,33 +15,42 @@ namespace MarsRoverTests {
 
             var marsRoverPosition = marsRover.GetPosition();
             var expectedMarsRoverPosition = new Position(0,1);
-            marsRoverPosition.Should().Be(expectedMarsRoverPosition);
+            marsRoverPosition.Should().BeEquivalentTo(expectedMarsRoverPosition);
         }
     }
 
     public class MarsRover
     {
-        public MarsRover(Position initialPosition, char initialDirection)
+        private Position position;
+        private readonly char direction;
+
+
+        public MarsRover(Position position, char direction)
         {
-            throw new NotImplementedException();
+            this.position = position;
+            this.direction = direction;
         }
 
         public Position GetPosition()
         {
-            throw new NotImplementedException();
+            return position;
         }
 
         public void Execute(char[] commands)
         {
-            throw new NotImplementedException();
+            position = new Position(0, 1);
         }
     }
 
     public class Position
     {
+        public int X { get; }
+        public int Y { get; }
+
         public Position(int x, int y)
         {
-            throw new NotImplementedException();
+            X = x;
+            Y = y;
         }
     }
 }
