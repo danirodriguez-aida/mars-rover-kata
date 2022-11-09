@@ -32,10 +32,9 @@ public class MarsRover
             return;
         }
 
-
         position = direction switch
         {
-            'E' => position.X == 0 ? new Position(1, 0) : new Position(2, 0),
+            'E' => new Position(position.X + 1, 0),
             'N' => new Position(0, 1),
             'W' => new Position(-1, 0),
             'S' => new Position(0, -1),
