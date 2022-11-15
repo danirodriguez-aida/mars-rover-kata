@@ -8,7 +8,7 @@ public class MarsRover {
     public MarsRover(Position position, char direction) {
         this.position = position;
         this.direction = direction;
-       
+
         var moveForward = new MoveForward(this);
         var moveBackward = new MoveBackward(this);
         moveCommands = new Dictionary<char, MoveCommand>
@@ -21,29 +21,18 @@ public class MarsRover {
     public Position GetPosition() {
         return position;
     }
-   
-    internal void SetNextRightPosition()
-    {
-        position = position.NextRightPosition();
-    }
-    internal void SetNextDownPosition()
-    {
-        position = position.NextDownPosition();
-    }
-    internal void SetNextLeftPosition()
-    {
-        position = position.NextLeftPosition();
-    }
-    internal void SetNextUpPosition()
-    {
-        position = position.NextUpPosition();
-    }
 
-    public void Execute(char[] commands)
-    {
-        foreach (var command in commands)
-        {
+    public void Execute(char[] commands) {
+        foreach (var command in commands) {
             moveCommands[command].Move();
         }
     }
+
+    internal void SetNextRightPosition() => position = position.NextRightPosition();
+
+    internal void SetNextDownPosition() => position = position.NextDownPosition();
+
+    internal void SetNextLeftPosition() => position = position.NextLeftPosition();
+
+    internal void SetNextUpPosition() => position = position.NextUpPosition();
 }
