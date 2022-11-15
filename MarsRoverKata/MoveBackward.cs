@@ -20,6 +20,6 @@ public class MoveBackward : MoveCommand {
     }
 
     public void Move() {
-        moveBackwardCommands[marsRover.direction].Move();
+        moveBackwardCommands[marsRover.GetDirection()].Move();
     }
 }
