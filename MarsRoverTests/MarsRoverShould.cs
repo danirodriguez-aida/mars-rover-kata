@@ -153,5 +153,18 @@ namespace MarsRoverTests {
             var expectedMarsRoverPosition = new Position(2, 0);
             marsRoverPosition.Should().BeEquivalentTo(expectedMarsRoverPosition);
         }
+
+        [Test]
+        public void turn_right_when_direction_is_North() {
+            const char initialDirection = 'N';
+            var initialPosition = new Position(0, 0);
+            var marsRover = new MarsRover(initialPosition, initialDirection);
+            var commands = new[] { 'r' };
+
+            marsRover.Execute(commands);
+
+            var marsRoverDirection = marsRover.GetDirection();
+            marsRoverDirection.Should().Be('E');
+        }
     }
 }

@@ -35,4 +35,9 @@ public class MarsRover {
     internal void SetNextLeftPosition() => position = position.NextLeftPosition();
 
     internal void SetNextUpPosition() => position = position.NextUpPosition();
+
+    public char GetDirection()
+    {
+        return direction;
+    }
 }
