@@ -2,7 +2,7 @@ namespace MarsRoverKata;
 
 public class MarsRover {
     private Position position;
-    internal readonly char direction;
+    internal char direction;
     private readonly Dictionary<char, MoveCommand> moveCommands;
 
     public MarsRover(Position position, char direction) {
@@ -24,6 +24,11 @@ public class MarsRover {
 
     public void Execute(char[] commands) {
         foreach (var command in commands) {
+            if (command.Equals('r'))
+            {
+                direction = 'E';
+                continue;
+            }
             moveCommands[command].Move();
         }
     }
