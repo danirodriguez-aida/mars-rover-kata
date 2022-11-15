@@ -2,10 +2,10 @@ namespace MarsRoverKata;
 
 public class MarsRover {
     internal Position position;
-    private readonly char direction;
-    private readonly Dictionary<char, MoveCommand> moveForwardCommands;
-    private readonly Dictionary<char, MoveCommand> moveBackwardCommands;
-
+    internal readonly char direction;
+    internal readonly Dictionary<char, MoveCommand> moveForwardCommands;
+    internal readonly Dictionary<char, MoveCommand> moveBackwardCommands;
+    private readonly Dictionary<char, MoveCommand> moveCommands;
 
     public MarsRover(Position position, char direction) {
         this.position = position;
@@ -28,7 +28,13 @@ public class MarsRover {
             {'E', moveLeftCommand},
             {'W', moveRightCommand}
         };
-
+        var moveForward = new MoveForward(this);
+        var moveBackward = new MoveBackward(this);
+        moveCommands = new Dictionary<char, MoveCommand>
+        {
+            {'f', moveForward},
+            {'b', moveBackward},
+        };
     }
 
     public Position GetPosition() {
@@ -37,23 +43,7 @@ public class MarsRover {
 
     public void Execute(char[] commands)
     {
-        if (commands.First() == 'b')
-        {
-            MoveBackward();
-            return;
-        }
-
-        MoveForward();
-    }
-
-    private void MoveForward()
-    {
-        moveForwardCommands[direction].Move();
-    }
-
-    private void MoveBackward()
-    {
-        moveBackwardCommands[direction].Move();
-
+        var firstCommand = commands.First();
+        moveCommands[firstCommand].Move();
     }
 }
