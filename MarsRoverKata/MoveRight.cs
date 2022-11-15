@@ -22,6 +22,9 @@ public class MoveRight: MoveCommand
             case 'S':
                 marsRover.direction = 'W';
                 break;
+            case 'W':
+                marsRover.direction = 'N';
+                break;
         }
     }
 }
