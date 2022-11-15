@@ -36,6 +36,11 @@ public class MarsRover {
                     direction = 'S';
                     continue;
                 }
+                if (direction.Equals('S'))
+                {
+                    direction = 'W';
+                    continue;
+                }
             }
             moveCommands[command].Move();
         }
