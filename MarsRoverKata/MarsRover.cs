@@ -1,7 +1,7 @@
 namespace MarsRoverKata;
 
 public class MarsRover {
-    internal Position position;
+    private Position position;
     internal readonly char direction;
     internal readonly Dictionary<char, MoveCommand> moveForwardCommands;
     internal readonly Dictionary<char, MoveCommand> moveBackwardCommands;
@@ -39,6 +39,23 @@ public class MarsRover {
 
     public Position GetPosition() {
         return position;
+    }
+   
+    internal void SetNextRightPosition()
+    {
+        position = position.NextRightPosition();
+    }
+    internal void SetNextDownPosition()
+    {
+        position = position.NextDownPosition();
+    }
+    internal void SetNextLeftPosition()
+    {
+        position = position.NextLeftPosition();
+    }
+    internal void SetNextUpPosition()
+    {
+        position = position.NextUpPosition();
     }
 
     public void Execute(char[] commands)

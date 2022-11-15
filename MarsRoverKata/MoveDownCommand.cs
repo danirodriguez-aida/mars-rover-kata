@@ -1,16 +1,13 @@
 namespace MarsRoverKata;
 
-public class MoveDownCommand: MoveCommand
-{
+public class MoveDownCommand : MoveCommand {
     private readonly MarsRover marsRover;
 
-    public MoveDownCommand(MarsRover marsRover)
-    {
+    public MoveDownCommand(MarsRover marsRover) {
         this.marsRover = marsRover;
     }
 
-    public void Move()
-    {
-        marsRover.position = marsRover.position.NextDownPosition();
+    public void Move() {
+        marsRover.SetNextDownPosition();
     }
 }
