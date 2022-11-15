@@ -11,10 +11,12 @@ public class MarsRover {
 
         var moveForward = new MoveForward(this);
         var moveBackward = new MoveBackward(this);
+        var moveRight = new MoveRight(this);
         moveCommands = new Dictionary<char, MoveCommand>
         {
             {'f', moveForward},
             {'b', moveBackward},
+            {'r', moveRight},
         };
     }
 
@@ -24,27 +26,10 @@ public class MarsRover {
 
     public void Execute(char[] commands) {
         foreach (var command in commands) {
-            if (command.Equals('r'))
-            {
-                if (direction.Equals('N'))
-                {
-                    direction = 'E';
-                    continue;
-                }
-                if (direction.Equals('E'))
-                {
-                    direction = 'S';
-                    continue;
-                }
-                if (direction.Equals('S'))
-                {
-                    direction = 'W';
-                    continue;
-                }
-            }
             moveCommands[command].Move();
         }
     }
+
 
     internal void SetNextRightPosition() => position = position.NextRightPosition();
 
