@@ -43,7 +43,9 @@ public class MarsRover {
 
     public void Execute(char[] commands)
     {
-        var firstCommand = commands.First();
-        moveCommands[firstCommand].Move();
+        foreach (var command in commands)
+        {
+            moveCommands[command].Move();
+        }
     }
 }
