@@ -26,6 +26,12 @@ public class MarsRover {
 
     public void Execute(char[] commands) {
         foreach (var command in commands) {
+            if (command.Equals('l'))
+            {
+                SetDirection('W');
+                continue;
+            }
+
             moveCommands[command].Move();
         }
     }
