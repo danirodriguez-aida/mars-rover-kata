@@ -1,9 +1,9 @@
-namespace MarsRoverKata;
+namespace MarsRoverKata.Commands;
 
-public class MoveLeft : MoveCommand {
+public class TurnLeftCommand : MoveCommand {
     private MarsRover marsRover;
 
-    public MoveLeft(MarsRover marsRover) {
+    public TurnLeftCommand(MarsRover marsRover) {
         this.marsRover = marsRover;
     }
 

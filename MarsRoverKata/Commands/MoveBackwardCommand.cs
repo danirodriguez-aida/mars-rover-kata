@@ -1,10 +1,12 @@
-namespace MarsRoverKata;
+namespace MarsRoverKata.Commands;
 
-public class MoveBackward : MoveCommand {
+public class MoveBackwardCommand : MoveCommand
+{
     private readonly MarsRover marsRover;
     private readonly Dictionary<Direction, MoveCommand> moveBackwardCommands;
 
-    public MoveBackward(MarsRover marsRover) {
+    public MoveBackwardCommand(MarsRover marsRover)
+    {
         this.marsRover = marsRover;
         var moveRightCommand = new MoveRightCommand(marsRover);
         var moveUpCommand = new MoveUpCommand(marsRover);
@@ -19,7 +21,8 @@ public class MoveBackward : MoveCommand {
         };
     }
 
-    public void Move() {
+    public void Move()
+    {
         moveBackwardCommands[marsRover.GetDirection()].Move();
     }
 }

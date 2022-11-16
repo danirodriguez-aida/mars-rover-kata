@@ -1,4 +1,4 @@
-namespace MarsRoverKata;
+namespace MarsRoverKata.Commands;
 
 public interface MoveCommand
 {

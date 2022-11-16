@@ -1,9 +1,6 @@
-namespace MarsRoverKata;
+using MarsRoverKata.Commands;
 
-public enum Direction
-{
-   N, S, E, W
-}
+namespace MarsRoverKata;
 
 public class MarsRover {
     private Position position;
@@ -14,10 +11,10 @@ public class MarsRover {
         this.position = position;
         this.direction = direction;
 
-        var moveForward = new MoveForward(this);
-        var moveBackward = new MoveBackward(this);
-        var moveRight = new MoveRight(this);
-        var moveLeft = new MoveLeft(this);
+        var moveForward = new MoveForwardCommand(this);
+        var moveBackward = new MoveBackwardCommand(this);
+        var moveRight = new TurnRightCommand(this);
+        var moveLeft = new TurnLeftCommand(this);
         moveCommands = new Dictionary<char, MoveCommand>
         {
             {'f', moveForward},
