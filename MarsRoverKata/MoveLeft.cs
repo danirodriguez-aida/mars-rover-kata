@@ -13,6 +13,9 @@ public class MoveLeft : MoveCommand {
             case 'N':
                 marsRover.SetDirection('W');
                 break;
+            case 'E':
+                marsRover.SetDirection('N');
+                break;
             case 'S':
                 marsRover.SetDirection('E');
                 break;
