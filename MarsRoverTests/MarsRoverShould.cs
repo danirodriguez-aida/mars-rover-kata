@@ -168,5 +168,17 @@ namespace MarsRoverTests {
             var marsRoverDirection = marsRover.GetDirection();
             marsRoverDirection.Should().Be(expectedDirection);
         }
+
+        [TestCase('N', 'W', TestName = "North")]
+        public void turn_left_when_direction_is(char initialDirection, char expectedDirection ) {
+            var initialPosition = new Position(0, 0);
+            var marsRover = new MarsRover(initialPosition, initialDirection);
+            var commands = new[] { 'l' };
+
+            marsRover.Execute(commands);
+
+            var marsRoverDirection = marsRover.GetDirection();
+            marsRoverDirection.Should().Be(expectedDirection);
+        }
     }
 }
