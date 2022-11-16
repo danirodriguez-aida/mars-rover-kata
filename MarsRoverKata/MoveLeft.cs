@@ -8,15 +8,17 @@ public class MoveLeft : MoveCommand {
     }
 
     public void Move() {
-
-        if (marsRover.GetDirection().Equals('N')) {
-            marsRover.SetDirection('W');
-        }
-        else if (marsRover.GetDirection().Equals('W')) {
-            marsRover.SetDirection('S');
-        }
-        else {
-            marsRover.SetDirection('E');
+        switch (marsRover.GetDirection())
+        {
+            case 'N':
+                marsRover.SetDirection('W');
+                break;
+            case 'S':
+                marsRover.SetDirection('E');
+                break;
+            case 'W':
+                marsRover.SetDirection('S');
+                break;
         }
 
     }
