@@ -32,10 +32,15 @@ public class MarsRover {
                 {
                     SetDirection('W');
                 }
-                else
+                else if (direction.Equals('W'))
                 {
                     SetDirection('S');
                 }
+                else
+                {
+                    SetDirection('E');
+                }
+
                 continue;
             }
 
