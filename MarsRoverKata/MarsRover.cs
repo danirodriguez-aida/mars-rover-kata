@@ -1,5 +1,27 @@
 namespace MarsRoverKata;
 
+public class MoveLeft : MoveCommand {
+    private MarsRover marsRover;
+
+    public MoveLeft(MarsRover marsRover) {
+        this.marsRover = marsRover;
+    }
+
+    public void Move() {
+
+        if (marsRover.GetDirection().Equals('N')) {
+            marsRover.SetDirection('W');
+        }
+        else if (marsRover.GetDirection().Equals('W')) {
+            marsRover.SetDirection('S');
+        }
+        else {
+            marsRover.SetDirection('E');
+        }
+
+    }
+}
+
 public class MarsRover {
     private Position position;
     private char direction;
@@ -12,11 +34,13 @@ public class MarsRover {
         var moveForward = new MoveForward(this);
         var moveBackward = new MoveBackward(this);
         var moveRight = new MoveRight(this);
+        var moveLeft = new MoveLeft(this);
         moveCommands = new Dictionary<char, MoveCommand>
         {
             {'f', moveForward},
             {'b', moveBackward},
             {'r', moveRight},
+            {'l', moveLeft},
         };
     }
 
@@ -26,24 +50,6 @@ public class MarsRover {
 
     public void Execute(char[] commands) {
         foreach (var command in commands) {
-            if (command.Equals('l'))
-            {
-                if (direction.Equals('N'))
-                {
-                    SetDirection('W');
-                }
-                else if (direction.Equals('W'))
-                {
-                    SetDirection('S');
-                }
-                else
-                {
-                    SetDirection('E');
-                }
-
-                continue;
-            }
-
             moveCommands[command].Move();
         }
     }
