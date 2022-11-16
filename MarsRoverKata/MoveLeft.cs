@@ -10,17 +10,17 @@ public class MoveLeft : MoveCommand {
     public void Move() {
         switch (marsRover.GetDirection())
         {
-            case 'N':
-                marsRover.SetDirection('W');
+            case Direction.N:
+                marsRover.SetDirection(Direction.W);
                 break;
-            case 'E':
-                marsRover.SetDirection('N');
+            case Direction.E:
+                marsRover.SetDirection(Direction.N);
                 break;
-            case 'S':
-                marsRover.SetDirection('E');
+            case Direction.S:
+                marsRover.SetDirection(Direction.E);
                 break;
-            case 'W':
-                marsRover.SetDirection('S');
+            case Direction.W:
+                marsRover.SetDirection(Direction.S);
                 break;
         }
 

@@ -1,11 +1,16 @@
 namespace MarsRoverKata;
 
+public enum Direction
+{
+   N, S, E, W
+}
+
 public class MarsRover {
     private Position position;
-    private char direction;
     private readonly Dictionary<char, MoveCommand> moveCommands;
+    private Direction direction;
 
-    public MarsRover(Position position, char direction) {
+    public MarsRover(Position position, Direction direction) {
         this.position = position;
         this.direction = direction;
 
@@ -32,11 +37,11 @@ public class MarsRover {
         }
     }
 
-    public char GetDirection() {
+    public Direction GetDirection() {
         return direction;
     }
 
-    public void SetDirection(char newDirection) {
+    public void SetDirection(Direction newDirection) {
         direction = newDirection;
     }
 

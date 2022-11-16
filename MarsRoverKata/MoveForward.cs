@@ -2,7 +2,7 @@ namespace MarsRoverKata;
 
 public class MoveForward : MoveCommand {
     private readonly MarsRover marsRover;
-    private readonly Dictionary<char, MoveCommand> moveForwardCommands;
+    private readonly Dictionary<Direction, MoveCommand> moveForwardCommands;
 
     public MoveForward(MarsRover marsRover) {
         this.marsRover = marsRover;
@@ -10,12 +10,12 @@ public class MoveForward : MoveCommand {
         var moveUpCommand = new MoveUpCommand(marsRover);
         var moveLeftCommand = new MoveLeftCommand(marsRover);
         var moveDownCommand = new MoveDownCommand(marsRover);
-        moveForwardCommands = new Dictionary<char, MoveCommand>
+        moveForwardCommands = new Dictionary<Direction, MoveCommand>
         {
-            {'N', moveUpCommand},
-            {'S', moveDownCommand},
-            {'E', moveRightCommand},
-            {'W', moveLeftCommand}
+            {Direction.N, moveUpCommand},
+            {Direction.S, moveDownCommand},
+            {Direction.E, moveRightCommand},
+            {Direction.W, moveLeftCommand}
         };
     }
 
