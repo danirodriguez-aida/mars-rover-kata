@@ -172,6 +172,7 @@ namespace MarsRoverTests {
         [TestCase('N', 'W', TestName = "North")]
         [TestCase('W', 'S', TestName = "West")]
         [TestCase('S', 'E', TestName = "South")]
+        [TestCase('E', 'N', TestName = "East")]
         public void turn_left_when_direction_is(char initialDirection, char expectedDirection ) {
             var initialPosition = new Position(0, 0);
             var marsRover = new MarsRover(initialPosition, initialDirection);
