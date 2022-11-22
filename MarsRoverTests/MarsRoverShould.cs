@@ -133,7 +133,7 @@ namespace MarsRoverTests {
         }
 
         [Test]
-        public void move_array_commands_when_direction_is_East() {
+        public void execute_a_list_of_commands() {
             var initialPosition = new Position(0, 0);
             var marsRover = new MarsRover(initialPosition, Direction.E);
             var commands = new[] { 'f', 'f', 'f', 'b' };
@@ -145,11 +145,11 @@ namespace MarsRoverTests {
             marsRoverPosition.Should().BeEquivalentTo(expectedMarsRoverPosition);
         }
 
-        [TestCase(Direction.N, Direction.E, TestName = "North")]
-        [TestCase(Direction.E, Direction.S, TestName = "East")]
-        [TestCase(Direction.S, Direction.W, TestName = "South")]
-        [TestCase(Direction.W, Direction.N, TestName = "West")]
-        public void turn_right_when_direction_is(Direction initialDirection, Direction expectedDirection ) {
+        [TestCase(Direction.N, Direction.E, TestName = "North to East")]
+        [TestCase(Direction.E, Direction.S, TestName = "East to South")]
+        [TestCase(Direction.S, Direction.W, TestName = "South to West")]
+        [TestCase(Direction.W, Direction.N, TestName = "West to North")]
+        public void change_direction_when_turn_right(Direction initialDirection, Direction expectedDirection ) {
             var initialPosition = new Position(0, 0);
             var marsRover = new MarsRover(initialPosition, initialDirection);
             var commands = new[] { 'r' };
@@ -160,11 +160,11 @@ namespace MarsRoverTests {
             marsRoverDirection.Should().Be(expectedDirection);
         }
 
-        [TestCase(Direction.N, Direction.W, TestName = "North")]
-        [TestCase(Direction.W, Direction.S, TestName = "West")]
-        [TestCase(Direction.S, Direction.E, TestName = "South")]
-        [TestCase(Direction.E, Direction.N, TestName = "East")]
-        public void turn_left_when_direction_is(Direction initialDirection, Direction expectedDirection ) {
+        [TestCase(Direction.N, Direction.W, TestName = "North to West")]
+        [TestCase(Direction.W, Direction.S, TestName = "West to South")]
+        [TestCase(Direction.S, Direction.E, TestName = "South to East")]
+        [TestCase(Direction.E, Direction.N, TestName = "East to North")]
+        public void change_direction_when_turn_left(Direction initialDirection, Direction expectedDirection ) {
             var initialPosition = new Position(0, 0);
             var marsRover = new MarsRover(initialPosition, initialDirection);
             var commands = new[] { 'l' };
